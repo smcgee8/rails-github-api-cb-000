@@ -14,6 +14,6 @@ class SessionsController < ApplicationController
       req.body = req_params.to_json
     end
     session[:token] = JSON.parse(resp.body)["access_token"]
-    raise session.inspect
+    raise session[:token]
   end
 end
