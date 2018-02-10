@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     }
     raise req_params.to_json
     resp = Faraday.post("https://github.com/login/oauth/access_token") do |req|
+      req.headers['Content-Type'] = 'application/json'
       req.body = req_params.to_json
     end
     raise resp.inspect
