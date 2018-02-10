@@ -5,9 +5,7 @@
   <!-- List repositories here! -->
   <ul>
     <% @repos.each do |repo| %>
-      <li>
-        <%= repo["name"] %><br>
-      </li>
+      <a href="<%= repo["html_url"] %>"><%= repo["name"] %></a>
     <% end %>
   </ul>
 
