@@ -10,5 +10,8 @@ class SessionsController < ApplicationController
         redirect_uri: #{"http://67.205.130.239:57441/auth"}
       }"
     end
+    body = JSON.parse(resp.body)
+    session[:token] = body["access_token"]
+    redirect_to root_path
   end
 end
