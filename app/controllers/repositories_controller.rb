@@ -5,7 +5,6 @@ class RepositoriesController < ApplicationController
       req.headers['Accept'] = 'application/json'
     end
     @repos = JSON.parse(resp.body)
-    raise @repos.inspect
   end
 
   def create
