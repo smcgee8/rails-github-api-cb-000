@@ -9,12 +9,7 @@ class SessionsController < ApplicationController
       redirect_uri: "http://67.205.130.239:57441/auth"
     }
     resp = Faraday.post("https://github.com/login/oauth/access_token") do |req|
-      req.body = "{
-        'client_id': '#{}',
-        'client_secret': '#{}',
-        'code': '#{params[:code]}',
-        'redirect_uri': '#{"http://67.205.130.239:57441/auth"}'
-      }"
+      req.body = params.to_json
     end
     raise resp.inspect
     body = JSON.parse(resp.body)
