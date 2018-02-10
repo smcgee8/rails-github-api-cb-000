@@ -12,9 +12,8 @@ class SessionsController < ApplicationController
       req.headers['Content-Type'] = 'application/json'
       req.body = req_params.to_json
     end
-    raise resp.inspect
     body = JSON.parse(resp.body)
     session[:token] = body["access_token"]
-    redirect_to root_path
+    raise session.inspect
   end
 end
