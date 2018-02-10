@@ -4,8 +4,8 @@ class RepositoriesController < ApplicationController
       req.headers['Authorization'] = "token #{session[:token]}"
       req.headers['Accept'] = 'application/json'
     end
-    body = JSON.parse(resp.body)
-    @repos = body[]
+    @repos = JSON.parse(resp.body)
+    raise @repos.inspect
   end
 
   def create
